@@ -1,0 +1,2 @@
+(this["webpackJsonpmy-app"]=this["webpackJsonpmy-app"]||[]).push([[0],{16:function(n,e,t){},20:function(n,e,t){"use strict";t.r(e);var a,c=t(0),r=t.n(c),i=t(6),d=t.n(i),s=(t(16),t(7)),o=t(8),p=t(1),u=o.a.div(a||(a=Object(s.a)(["\n  background: red;\n  display: flex;\n  width: 100%;\n"])));var b=function(){return Object(p.jsx)(u,{children:"Rahul Belamkar1"})};d.a.render(Object(p.jsx)(r.a.StrictMode,{children:Object(p.jsx)(b,{})}),document.getElementById("root"))}},[[20,1,2]]]);
+//# sourceMappingURL=main.9dd0b2dc.chunk.js.map
