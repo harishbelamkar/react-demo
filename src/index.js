@@ -11,7 +11,7 @@ import {BrowserRouter,Route, Switch} from 'react-router-dom';
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/react-demo">
         <LoginScreen />
       </Route>
       <Route path="/signup">
