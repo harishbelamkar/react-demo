@@ -1,8 +1,8 @@
-import { string } from "prop-types";
 import React, { useState } from "react";
-
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = styled.div`
   background: white;
@@ -37,7 +37,6 @@ const InputContainer = styled.input`
   border: none;
   border-bottom: 1px solid;
   outline:none;
-
   &::-webkit-input-placeholder {
     color: white;
   }
@@ -52,23 +51,45 @@ const ButtonContainer = styled.div`
 `;
 const Button = styled.button`
   width : 100px;
-  `;
+`;
 
-function App() {
+function SignUpScreen() {
 
-  const [email, setEmail] = useState('', string);
-  const [password, setPassword] = useState('', string);
+  const history = useHistory();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const loginButtonClicked = () => {
-    console.log("loginButtonClicked",email,password);
+  
+  const submitButtonClicked = () => {
+
+    if(!name){
+        toast.error("Please enter name!")
+        return;
+      }
+
+    if(!email){
+        toast.error("Please enter email id!")
+        return;
+      }
+      if(!password){
+        toast.error("Please enter password!")
+        return;
+      }
+      history.push('/');
+
   }
-  const signUpButtonClicked = () => {
-    console.log('signUpButtonClicked');
+
+  const nameChanged = (e) => {
+    console.log('emailChanged..',e.target.value);
+    setName(e.target.value);
   }
+
   const emailChanged = (e) => {
     console.log('emailChanged..',e.target.value);
     setEmail(e.target.value);
   }
+
   const passwordChanged = (e) => {
     console.log("passwordChanged...",e.target.value);
     setPassword(e.target.value);
@@ -77,10 +98,17 @@ function App() {
   return (
     <Header>
       <LoginBox>
-          <span>Login Form</span>
+          <span>Sign Up Form</span>
+
+          <InputContainer 
+            type = 'name' 
+            placeholder="Name" 
+            name= "name"
+            onChange={nameChanged}/>
+
           <InputContainer 
             type = 'email' 
-            placeholder="User Name" 
+            placeholder="Email-Id" 
             name= "email"
             onChange={emailChanged}/>
 
@@ -91,13 +119,24 @@ function App() {
             onChange={passwordChanged}/>
 
         <ButtonContainer>
-          <Button onClick={loginButtonClicked}>Login</Button>
-          <Button onClick={signUpButtonClicked}>Sign Up</Button>          
+          <Button onClick={submitButtonClicked}>Submit</Button>
         </ButtonContainer>
 
       </LoginBox>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Header>
   );
 }
 
-export default App;
+export default SignUpScreen;
