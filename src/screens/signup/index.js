@@ -76,7 +76,7 @@ function SignUpScreen() {
         toast.error("Please enter password!")
         return;
       }
-      history.push('/');
+      history.push('/react-demo');
 
   }
 

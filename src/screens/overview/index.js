@@ -67,7 +67,7 @@ const OverViewScreen = (props) => {
     <Header>
           User is logged in : {location.state.emailId}
           <ButtonContainer>
-          <Link to = '/'>
+          <Link to = '/react-demo'>
             <Button>Logout</Button>
           </Link>
           </ButtonContainer>
